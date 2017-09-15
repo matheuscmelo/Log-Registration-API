@@ -1,24 +1,13 @@
-# README
+# Registro de logs
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+API para registro de logs feita em Ruby On Rails.
 
-Things you may want to cover:
+Para rodar basta ter Docker e Compose instalados e rodar o comando
 
-* Ruby version
+```
+docker-compose up
+```
 
-* System dependencies
+Também contém uma interface simples para teste feita com AngularJS e Bootstrap, rodando em um container nginx.
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Além das gems padrão, utilizei rack para resolver o CORS.
