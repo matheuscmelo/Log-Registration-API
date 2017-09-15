@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  day: 2017-09-14
+  time: 2017-09-14 12:39:34
+  context: MyString
+  log_message: MyText
+
+two:
+  day: 2017-09-14
+  time: 2017-09-14 12:39:34
+  context: MyString
+  log_message: MyText

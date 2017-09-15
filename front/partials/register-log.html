@@ -1,0 +1,74 @@
+<form class="form-horizontal">
+  <div class="form-group">
+    <label class="control-label col-sm-2" for="email">Data:</label>
+    <div class="col-sm-10">
+      <div class="form-group">
+      	<div class="row">
+      	<div class="col-sm-2">
+  		<select ng-model="vm.day" class="form-control" id="day_selector" required>
+		    <option ng-repeat="i in vm.getNumberOfDays() track by $index">{{$index + 1}}</option>
+		</select>
+	</div>	
+	<div class="col-sm-2">
+		<select ng-model="vm.month" class="form-control" id="month_selector" required>
+			<option ng-repeat="i in vm.getNumberOfMonths() track by $index">{{$index + 1}}</option>
+		</select>
+	</div>
+	<div class="col-sm-2">
+		<select ng-model="vm.year" class="form-control" id="year_selector" required>
+			<option ng-repeat="i in vm.getNumberOfYears() track by $index">{{2017 - $index}}</option>
+		</select>
+	</div>
+	  </div>
+	</div>
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="control-label col-sm-2" for="pwd">Hora:</label>
+    <div class="col-sm-10"> 
+      <div class="form-group">
+      	<div class="row">
+      	<div class="col-sm-2">
+  		<select ng-model="vm.log.hour" class="form-control" id="day_selector" required>
+		    <option ng-repeat="i in vm.getNumberOfHours() track by $index">{{$index}}</option>
+		</select>
+	</div>	
+	<div class="col-sm-2">
+		<select ng-model="vm.log.minutes" class="form-control" id="month_selector" required>
+			<option ng-repeat="i in vm.getNumberOfMinutes() track by $index">{{$index}}</option>
+		</select>
+	</div>
+	  </div>
+	</div>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label class="control-label col-sm-2" for="pwd">Contexto:</label>
+    <div class="col-sm-10"> 
+      <input type="input" ng-model="vm.log.context" class="form-control">
+    </div>
+  </div>
+
+    <div class="form-group">
+    <label class="control-label col-sm-2" for="pwd">Tipo:</label>
+    <div class="col-sm-2"> 
+      <input type="number" ng-model="vm.log.log_type" class="form-control">
+    </div>
+  </div>
+
+    <div class="form-group">
+    <label class="control-label col-sm-2" for="pwd">Mensagem:</label>
+    <div class="col-sm-10"> 
+      <input type="input" ng-model="vm.log.log_message" class="form-control">
+    </div>
+  </div>
+
+  <div class="form-group"> 
+    <div class="col-sm-offset-2 col-sm-10">
+      <button type="submit" ng-click="vm.registerLog(vm.log)" class="btn btn-success">Enviar</button>
+    </div>
+
+
+  </div>
+</form>
