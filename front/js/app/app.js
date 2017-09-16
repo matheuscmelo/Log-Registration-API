@@ -8,7 +8,12 @@ angular.module('LogRegister', ['ui.router'])
 	.state('register-log', {
 		url: '/',
 		templateUrl: 'partials/register-log.html',
-		controller: 'RegisterLogController as vm'
+		controller: 'RegisterLogController as vm',
+	})
+	.state('context-search', {
+		url: '/contextSearch',
+		templateUrl: 'partials/context-search.html',
+		controller: 'ContextSearchController as vm',
 	});
 
 	$locationProvider.html5Mode({ enabled: true, requireBase: false });

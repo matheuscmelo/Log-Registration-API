@@ -1,0 +1,48 @@
+<div class="form-group" style="padding-bottom:1cm">
+    <div class="col-sm-10"> 
+      <input type="input" ng-model="vm.context" class="form-control" placeholder="Digite o contexto">
+    </div>
+    <div class="col-sm-2">
+      <button type="submit" ng-click="vm.searchContext(vm.context)" class="btn btn-success">Pesquisar</button>
+  </div>
+</div>
+<div class="thumbnail">
+	<h4>Métricas para este contexto</h4>
+	<div class="row">
+		<div class="col-sm-12">
+			<label class="col-sm-12">Logs/h: {{vm.metrics.logs_per_hour}} logs/h</label>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-sm-12">
+			<label class="col-sm-6">Hora com mais logs: {{vm.metrics.most_logs}}h</label>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-sm-12">
+			<label class="col-sm-6">Hora com menos logs: {{vm.metrics.least_logs}}h</label>
+		</div>
+	</div>
+</div>
+
+<div class="thumbnail col-sm-12" ng-repeat="log in vm.logs">
+	<div class="row">
+		<div class="col-sm-6">
+			<label class="col-sm-3">Contexto:</label><p class="col-sm-3">{{log.context}}</p>
+		</div>
+		<div class="col-sm-6">
+			<label class="col-sm-3">Tipo:</label><p class="col-sm-3">{{log.log_type}}</p>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-sm-6">
+			<label class="col-sm-2">Data:</label><p class="col-sm-4">{{log.day}}</p>
+		</div>
+		<div class="col-sm-6">
+			<label class="col-sm-3">Hora:</label><p class="col-sm-3">{{log.hour}}:{{log.minutes}}</p>
+		</div>
+	</div>
+	<div class="row">
+		<label class="col-sm-2">Mensagem:</label><p class="col-sm-10" style="align-content:left">{{log.log_message}}</p>
+	</div>
+</div>

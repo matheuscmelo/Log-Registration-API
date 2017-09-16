@@ -2,29 +2,30 @@ module Api
 	module V1
 		class MetricsController < ApplicationController
 
+			def initialize
+				@logs = LogService.new
+			end
+
 			def logsPerHour
-				logs = Log.all
-				total_today = 0
-				current_date = Time.now.strftime("%Y-%m-%d")
-				current_hour = Integer(Time.now.strftime("%H"))
+				context = params[:context]
+				logs = @logs.getByContext(context)
 
-				for log in logs
-					if current_date == log.day
-						total_today += 1
-					end
-				end
+				average = logs.length / 24.0
 
-				average = total_today / current_hour
+				average = average * 10
+				average = average.ceil
+				average = average / 10.0
 
-				render json: {status: 'SUCCESS', message: 'Media calculada', data: total_today}, status: :ok
+				render json: {status: 'SUCCESS', message: 'Media calculada', data: average}, status: :ok
 
 			end
 
-			def mostLogsInHour
+			def hourWithMostLogs
 
-				# usando um passo do count sort para calcular a frequencia, eu paguei EDA pra alguma coisa afinal
+				# usando um passo do count sort para calcular a frequencia porque sim
 
-				logs = Log.all
+				context = params[:context]
+				logs = @logs.getByContext(context)
 				count = [0] * 24
 
 				for log in logs
@@ -42,11 +43,12 @@ module Api
 				render json: {status: 'SUCCESS', message: 'Hora com maior numero de logs calculada', data: hour_with_most_logs}, status: :ok
 			end
 
-			def leastLogsInHour
+			def hourWithLeastLogs
 
 				# mesma coisa que o outro só muda a condicao. template method?
 
-				logs = Log.all
+				context = params[:context]
+				logs = @logs.getByContext(context)
 				count = [0] * 24
 
 				for log in logs
