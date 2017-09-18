@@ -34,12 +34,13 @@
 
 		vm.getNumberOfMinutes = function() {
 			return Array(60);
-		}
+		};
 
 		vm.registerLog = function(log) {
 			log.day = vm.day + "/" + vm.month + "/" + vm.year
 			RESTService.registerLog(log);
-		}
+			alert("Log registrado com sucesso!");
+		};
 
 
 

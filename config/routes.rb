@@ -4,10 +4,10 @@ Rails.application.routes.draw do
 			get 'logs/:id' => 'logs#show'
 			get 'logs/' => 'logs#index'
 			post 'logs/' => 'logs#create'
-			get 'context/:context' => 'logs#getByContext'
-			get 'context/:context/metrics/averagePerHour/' => 'metrics#logsPerHour'
-			get 'context/:context/metrics/hourWithMostLogs/' => 'metrics#hourWithMostLogs'
-			get 'context/:context/metrics/hourWithLeastLogs/' => 'metrics#hourWithLeastLogs'
+			get 'context/:context' => 'logs#get_by_context'
+			get 'context/:context/metrics/averagePerHour/' => 'metrics#logs_per_hour'
+			get 'context/:context/metrics/hourWithMostLogs/' => 'metrics#hour_with_most_logs'
+			get 'context/:context/metrics/hourWithLeastLogs/' => 'metrics#hour_with_least_logs'
 		end
 	end
 

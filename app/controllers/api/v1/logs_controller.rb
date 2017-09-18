@@ -9,16 +9,16 @@ module Api
 			end
 
 			def index
-				render json: {status: 'SUCCESS', message: 'Logs carregados', data: @logs.getAll}, status: :ok
+				render json: Response.new('SUCCESS', 'Logs carregados', @logs.getAll), status: :ok
 
 			end
 
 			def show
 				begin
-					log = @logs.getById(params[:id])
-					render json: {status: 'SUCCESS', message: 'Log carregado', data: log}, status: :ok
+					log = @logs.get_by_id(params[:id])
+					render json: Response.new('SUCCESS', 'Log carregado', log), status: :ok
 				rescue
-					render json: {status: 'FAILED', message: 'Log nao encontrado', data: nil}, status: :not_found
+					render json: Response.new('FAILED', 'Log nao encontrado', nil), status: :not_found
 				end
 			end
 
@@ -26,15 +26,15 @@ module Api
 				log = Log.new(log_params)
 
 				if log.save
-					render json: {status: 'SUCCESS', message: 'Log salvo', data: log}, status: :ok
+					render json: Response.new('SUCCESS', 'Log salvo', log), status: :ok
 				else
-					render json: {status: 'FAILED', message: 'Log nao salvo', data: log}, status: :unprocessable_entity
+					render json: Response.new('FAILED', 'Log nao salvo', log), status: :unprocessable_entity
 				end
 			end
 
-			def getByContext
-				logs_in_context = @logs.getByContext(params[:context])
-				render json: {status: 'SUCCESS', message: 'Logs carregados', data: logs_in_context}, status: :ok
+			def get_by_context
+				logs_in_context = @logs.get_by_context(params[:context])
+				render json: Response.new('SUCCESS', 'Logs carregados', logs_in_context), status: :ok
 			end
 
 			private

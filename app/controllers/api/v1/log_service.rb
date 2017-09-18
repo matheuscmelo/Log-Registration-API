@@ -3,15 +3,15 @@ module Api
 
 		class LogService
 
-			def getById(id)
+			def get_by_id(id)
 				return Log.find(id)
 			end
 
-			def getAll
+			def get_all
 				return Log.all
 			end
 
-			def getByContext(context)
+			def get_by_context(context)
 				logs = Log.all
 				logs_in_context = []
 

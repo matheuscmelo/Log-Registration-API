@@ -30,13 +30,11 @@
 			var hourWithMostLogsPromise = RESTService.getHourWithMostLogs(context);
 			hourWithMostLogsPromise.then(function(response) {
 				vm.metrics.most_logs = response.data.data;
-				console.log(response.data.data);
 			});
 
 			var hourWithLeastLogsPromise = RESTService.getHourWithLeastLogs(context);
 			hourWithLeastLogsPromise.then(function(response) {
 				vm.metrics.least_logs = response.data.data;
-				console.log(response.data.data);
 			});
 		}
 
