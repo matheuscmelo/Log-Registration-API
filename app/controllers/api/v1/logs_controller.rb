@@ -9,7 +9,7 @@ module Api
 			end
 
 			def index
-				render json: Response.new('SUCCESS', 'Logs carregados', @logs.getAll), status: :ok
+				render json: Response.new('SUCCESS', 'Logs carregados', @logs.get_all), status: :ok
 
 			end
 
