@@ -37,6 +37,22 @@ module Api
 				render json: Response.new('SUCCESS', 'Logs carregados', logs_in_context), status: :ok
 			end
 
+			def logs_today
+				context = params[:context]
+				logs = @logs.get_by_context(context)
+				today = Time.now.strftime("%Y-%m-%d")
+				logs_today = @logs.get_by_date(today)
+
+				render json: Response.new('SUCCESS', 'Logs de hoje carregados', logs_today), status: :ok
+			end
+
+			def logs_in_hour
+				hour = params[:hour]
+				logs_in_hour = @logs.get_by_hour(hour)
+
+				render json: Response.new('SUCCESS', 'Logs na hora ' + hour + ' carregados', logs_in_hour), status: :ok
+			end
+
 			private
 
 			def log_params

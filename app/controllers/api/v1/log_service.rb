@@ -24,6 +24,33 @@ module Api
 				return logs_in_context
 			end
 
+			def get_by_hour(hour)
+				logs = Log.all
+				logs_in_hour = []
+
+				for log in logs
+					if log.hour == Integer(hour)
+						logs_in_hour.push(log)
+					end
+				end
+
+				return logs_in_hour
+			end
+
+			def get_by_date(date)
+				logs = Log.all
+				logs_in_date = []
+
+				for log in logs
+					if log.day.strftime == date
+						logs_in_date.push(log)
+					end
+				end
+
+
+				return logs_in_date
+			end
+
 		end
 
 	end

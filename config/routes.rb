@@ -8,6 +8,8 @@ Rails.application.routes.draw do
 			get 'context/:context/metrics/averagePerHour/' => 'metrics#logs_per_hour'
 			get 'context/:context/metrics/hourWithMostLogs/' => 'metrics#hour_with_most_logs'
 			get 'context/:context/metrics/hourWithLeastLogs/' => 'metrics#hour_with_least_logs'
+			get 'context/:context/metrics/logsToday/' => 'logs#logs_today'
+			get 'hour/:hour' => 'logs#logs_in_hour'
 		end
 	end
 

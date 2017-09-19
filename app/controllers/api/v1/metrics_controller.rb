@@ -51,6 +51,28 @@ module Api
 				render json: Response.new('SUCCESS', 'Hora com menor numero de logs calculada', hour_with_least_logs), status: :ok
 			end
 
+			def logs_today
+				context = params[:context]
+				logs = @logs.get_by_context(context)
+				today = Time.now.strftime("%Y-%m-%d")
+				logs_today = []
+
+				for log in logs
+					if log.day.strftime == today
+						logs_today.push(log)
+					end
+				end
+
+				render json: Response.new('SUCCESS', 'Logs de hoje carregados', logs_today), status: :ok
+			end
+
+			def logs_in_hour
+				hour = params[:hour]
+				logs_in_hour = @logs.get_by_hour(hour)
+
+				render json: Response.new('SUCCESS', 'Logs na hora ' + hour + ' carregados', logs_in_hour), status: :ok
+			end
+
 			private
 
 			def day_frequency(logs)
@@ -75,14 +97,14 @@ module Api
 			end
 
 			def get_most_frequency(list)
-				least = 0
+				most = 0
 				for i in [*0..list.length-1]
-					if list[i] > list[least]
-						least = i
+					if list[i] > list[most]
+						most = i
 					end
 				end
 
-				return least
+				return most
 			end
 
 
