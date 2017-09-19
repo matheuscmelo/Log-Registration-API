@@ -21,7 +21,7 @@ http://165.227.223.233/
 
 Já a API pode ser acessada pelo mesmo IP, na porta 3000, e possui os seguintes endpoints:
 
-| Metodo | Endppoint | Resultado |
+| Metodo | Endppoint(/api/v1/...) | Resultado |
 |---|---|---|
 | POST | logs/ | Cadastra um novo log |
 | GET | logs/ | Retorna a lista de todos os logs cadastrados |
