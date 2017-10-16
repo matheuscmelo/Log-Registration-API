@@ -12,14 +12,7 @@ Também contém uma interface simples para teste feita com AngularJS e Bootstrap
 
 Além das gems padrão, utilizei rack para resolver o CORS.
 
-A aplicação está hospedada em um droplet da DigitalOcean.
-
-O frontend pode ser acessado através do link
-```
-http://165.227.223.233/
-```
-
-Já a API pode ser acessada pelo mesmo IP, na porta 3000, e possui os seguintes endpoints:
+A API possui os seguintes endpoints:
 
 | Metodo | Endpoint(/api/v1/...) | Resultado |
 |---|---|---|
